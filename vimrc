@@ -33,6 +33,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
+Plug 'tomasr/molokai'
 call plug#end()
 
 "UI_Setting
