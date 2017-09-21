@@ -38,12 +38,13 @@ call plug#end()
 "UI_Setting
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set history=1000
 set backspace=2
 set laststatus=2
 set number
 set display=lastline           " Show as much as possible of the last line
-
+set relativenumber
 "Vim_Encoding_Setting
 set encoding=utf-8  
 set termencoding=utf-8
@@ -65,6 +66,7 @@ set history=10000              " Maximum history record
 set showmatch
 set cursorline
 set cursorcolumn
+set wildmode=list:longest,full
 set wildignore+=*swp,*.class,*.pyc,*.png,*.jpg,*.gif,*.zip
 set wildignore+=*/tmp/*,*.o,*.obj,*.so     " Unix
 set backup
@@ -99,7 +101,8 @@ set completeopt-=preview
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+ let g:ycm_key_invoke_completion=''
+let g:ycm_global_ycm_extra_conf = "~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 "Snip
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -112,12 +115,11 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "NERD
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"ale
 let g:ale_linters = {
 			\   'sh' : ['shellcheck'],
 			\   'vim' : ['vint'],
-			\   'html' : ['tidy'],
-			\   'python' : ['flake8'],
+    		\   'html' : ['tidy'],
+			\   'python' : ['pylint'],
 			\   'markdown' : ['mdl'],
 			\   'javascript' : ['eslint'],
 			\}
